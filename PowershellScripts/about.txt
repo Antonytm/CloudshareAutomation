@@ -1,0 +1,1 @@
+autodeployment is based on https://github.com/adoprog/Sitecore-PowerCore scripts

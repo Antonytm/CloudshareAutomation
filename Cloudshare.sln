@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudshareFormApplication", "Cloudshare\CloudshareFormApplication.csproj", "{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{6AB36D84-1BA8-4EDF-AF6F-FA39DCEC9116}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudshareAgent", "CloudshareAgent\CloudshareAgent.csproj", "{FEDC037F-C24E-4D7D-962B-07DDB45B579F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudshareAPIWrapper", "CloudshareClient\CloudshareAPIWrapper.csproj", "{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|Mixed Platforms = Debug|Mixed Platforms
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|Mixed Platforms = Release|Mixed Platforms
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Debug|x86.ActiveCfg = Debug|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Debug|x86.Build.0 = Debug|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Release|Any CPU.ActiveCfg = Release|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Release|Mixed Platforms.Build.0 = Release|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Release|x86.ActiveCfg = Release|x86
+		{28F4CCFD-285D-4A79-ACB3-91B0D50339B2}.Release|x86.Build.0 = Release|x86
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{FEDC037F-C24E-4D7D-962B-07DDB45B579F}.Release|x86.ActiveCfg = Release|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
