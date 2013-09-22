@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudshareAgent", "Cloudsha
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudshareAPIWrapper", "CloudshareClient\CloudshareAPIWrapper.csproj", "{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CloudshareConsoleApplication", "CloudshareConsoleApplication\CloudshareConsoleApplication.csproj", "{F73A7293-E249-4EA9-BCC9-BA2D4F363850}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,16 @@ Global
 		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}.Release|x86.ActiveCfg = Release|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F73A7293-E249-4EA9-BCC9-BA2D4F363850}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

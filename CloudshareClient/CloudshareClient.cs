@@ -251,6 +251,15 @@
       return this.Execute<ExecutedPath>(request);
     }
 
+    public BaseResponse TakeSnapshot(string envId, string snapshotName, string description, bool setAsDefault)
+    {
+        var request = new RestRequest("v2/Env/EntAppTakeSnapshot", Method.GET);
+        request.AddParameter("envid", envId);
+        request.AddParameter("snapshotname", snapshotName);
+        request.AddParameter("description", description);
+        request.AddParameter("setasdefault", setAsDefault);
+        return this.Execute<ExecutedPath>(request);       
+    }
   }
 
 }

@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{F73A7293-E249-4EA9-BCC9-BA2D4F363850}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CloudshareClient</RootNamespace>
-    <AssemblyName>CloudshareClient</AssemblyName>
+    <RootNamespace>CloudshareConsoleApplication</RootNamespace>
+    <AssemblyName>CloudshareConsoleApplication</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,39 +32,26 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
-    <Reference Include="WinSCP">
-      <HintPath>..\packages\WinSCP.NET.5.1.1.0\lib\WinSCP.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CloudshareAccount.cs" />
-    <Compile Include="CloudshareClient.cs" />
-    <Compile Include="CloudshareManager.cs" />
-    <Compile Include="Model\BaseResponse.cs" />
-    <Compile Include="Model\Blueprints.cs" />
-    <Compile Include="Model\CloudFoldersInfo.cs" />
-    <Compile Include="Model\EnvironmentDetails.cs" />
-    <Compile Include="Model\Environments.cs" />
-    <Compile Include="Model\ExecutedPath.cs" />
-    <Compile Include="Model\NetworkFolder.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="readme_automation.txt" />
+    <ProjectReference Include="..\CloudshareClient\CloudshareAPIWrapper.csproj">
+      <Project>{5EDDBD07-0A8E-4019-AEC8-4A6D46621944}</Project>
+      <Name>CloudshareAPIWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
