@@ -86,7 +86,7 @@ namespace CloudshareClient
                         select vms.data.vms[0].vmId).FirstOrDefault();
 
             var fileName = Path.GetFileName(filename);
-
+            
             var req = WebRequest.Create(@"http://" + vms.data.vms[0].FQDN + @"/CloudshareAgent/Install.ashx?zip=" + fileName + @"&subfolder=" + CloudshareManager.remoteUserFolderName.Replace(" ", "-").Replace("'", "-").Replace("(", "-").Replace(")", "-")
               + @"&username=" + vms.data.vms[0].username + @"&password=" + vms.data.vms[0].password);
             req.Method = "GET";
@@ -96,7 +96,9 @@ namespace CloudshareClient
 
             var executedPath = client.ExecutePath(envId, vmId, @"c:\installer\Jetstream.bat");
             Thread.Sleep(1800000);
-            client.TakeSnapshot(envId, "Jestream " + DateTime.Now.ToString("yyyyMMdd"), "Jetstream cloudshare created on " + DateTime.Now.ToShortDateString(), false);
+            
+            var resp = client.TakeSnapshot(envId, "Jestream " + DateTime.Now.ToString("yyyyMMdd"), "Jetstream cloudshare created on " + DateTime.Now.ToShortDateString(), false);
+            Console.WriteLine(resp.status_text);
         }
 
         private static void UploadFile(string fileToUpload)
