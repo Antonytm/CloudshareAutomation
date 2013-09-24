@@ -55,18 +55,18 @@ namespace CloudshareClient
             var selectedSnapshot = (from data in environmentStates.data
                                     from blueprint in data.Blueprints
                                     from snapshot in blueprint.Snapshots
-                                    where snapshot.Name == snapshotName
+                                    where snapshot.IsLatest == true && blueprint.Name == blueprintName
                                     select snapshot).FirstOrDefault();
             var selectedBluprint = (from data in environmentStates.data
                                     from blueprint in data.Blueprints
                                     from snapshot in blueprint.Snapshots
-                                    where snapshot.Name == snapshotName
+                                    where snapshot.IsLatest == true && blueprint.Name == blueprintName
                                     select blueprint).FirstOrDefault();
 
             var selectedData = (from data in environmentStates.data
                                 from blueprint in data.Blueprints
                                 from snapshot in blueprint.Snapshots
-                                where snapshot.Name == snapshotName
+                                where snapshot.IsLatest == true && blueprint.Name == blueprintName
                                 select data).FirstOrDefault();
 
             CloudshareManager.client = new CloudshareAPIWrapper.CloudshareClient(ac);
