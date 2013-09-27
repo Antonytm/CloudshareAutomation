@@ -41,6 +41,7 @@
       this.gbTypeBluePrint = new System.Windows.Forms.GroupBox();
       this.rbAliveEnvironment = new System.Windows.Forms.RadioButton();
       this.rbNewEnvironment = new System.Windows.Forms.RadioButton();
+      this.tbOwner = new System.Windows.Forms.TextBox();
       this.bpLoadFile = new Cloudshare.Controls.CustomProgressBar();
       this.gbTypeBluePrint.SuspendLayout();
       this.SuspendLayout();
@@ -164,6 +165,14 @@
       this.rbNewEnvironment.UseVisualStyleBackColor = true;
       this.rbNewEnvironment.CheckedChanged += new System.EventHandler(this.rbNewEnvironment_CheckedChanged);
       // 
+      // tbOwner
+      // 
+      this.tbOwner.Location = new System.Drawing.Point(298, 40);
+      this.tbOwner.Name = "tbOwner";
+      this.tbOwner.Size = new System.Drawing.Size(372, 20);
+      this.tbOwner.TabIndex = 19;
+      this.tbOwner.Visible = false;
+      // 
       // bpLoadFile
       // 
       this.bpLoadFile.CustomText = "Load package...";
@@ -179,6 +188,7 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(718, 538);
+      this.Controls.Add(this.tbOwner);
       this.Controls.Add(this.bpLoadFile);
       this.Controls.Add(this.gbTypeBluePrint);
       this.Controls.Add(this.lbLogs);
@@ -215,6 +225,7 @@
     private System.Windows.Forms.RadioButton rbAliveEnvironment;
     private System.Windows.Forms.RadioButton rbNewEnvironment;
     private Controls.CustomProgressBar bpLoadFile;
+    private System.Windows.Forms.TextBox tbOwner;
   }
 }
 

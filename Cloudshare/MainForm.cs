@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Linq;
 using System.Net;
+using System.Threading;
 using System.Windows.Forms;
 using Cloudshare.Controls;
 using CloudshareAPIWrapper;
@@ -66,6 +67,7 @@ namespace Cloudshare
     {
       this.InitializeComponent();
 
+      InitPcUser();
       InitData();
 
       this.BlueprintsComboBox.DataSource = _blueprints;
@@ -101,15 +103,31 @@ namespace Cloudshare
 
 
       _aliveEnvironments = (from data in env.data
-                            where data.status_code == 0
+                            where data.status_code == 0 && data.owner == tbOwner.Text
                             select data.name).Distinct().ToList();
+
+
+
+    }
+
+    private void InitPcUser()
+    {
+      var windowsIdentity = System.Security.Principal.WindowsIdentity.GetCurrent();
+      if (windowsIdentity != null)
+      {
+        var userNameSplit = windowsIdentity.Name.Split('\\');
+        var userDomain = userNameSplit[0];
+        var userName = userNameSplit[1];
+        if (userDomain.Equals("DK"))
+          tbOwner.Text = string.Format("{0}@sitecore.net", userName);
+      }
     }
 
     private void InstallButton_Click(object sender, EventArgs e)
     {
       bpLoadFile.DisplayStyle = ProgressBarDisplayText.CustomText;
       bpLoadFile.CustomText = "Load package...";
-     
+
       string environmentName;
 
       if (rbNewEnvironment.Checked)
@@ -156,9 +174,19 @@ namespace Cloudshare
 
       this.UploadZip();
       var env = client.GetEnvironmentsList();
-      var envId = (from data in env.data
-                   where data.name == environmentName
-                   select data.envId).FirstOrDefault();
+      string envId;
+      if (tbOwner.Visible)
+      {
+        envId = (from data in env.data
+                 where data.name == environmentName && data.owner == tbOwner.Text
+                 select data.envId).FirstOrDefault();
+      }
+      else
+      {
+        envId = (from data in env.data
+                 where data.name == environmentName
+                 select data.envId).FirstOrDefault();
+      }
 
       if (envId == null) return;
 
@@ -169,21 +197,21 @@ namespace Cloudshare
                   select vms.data.vms[0].vmId).FirstOrDefault();
 
       var req = WebRequest.Create(@"http://" + vms.data.vms[0].FQDN + @"/CloudshareAgent/Install.ashx?zip=" + this.filename + @"&subfolder=" + this.remoteUserFolderName.Replace(" ", "-").Replace("'", "-").Replace("(", "-").Replace(")", "-")
-                                  + @"&username=" + vms.data.vms[0].username + @"&password=" + vms.data.vms[0].password);
+            + @"&username=" + vms.data.vms[0].username + @"&password=" + vms.data.vms[0].password);
 
-      lbLogs.Items.Add("WebRequest has been made!");
-      req.Method = "GET";
-      //TODO: response checker if anything is OK
-      var response = req.GetResponse();
+      using (req.GetResponse())
+      {
+        lbLogs.Items.Add("WebRequest has been made!");
+      }
+
       var executedPath = client.ExecutePath(envId, vmId, @"c:\installer\Jetstream.bat");
+      Thread.Sleep(5000);//1800000
       lbLogs.Items.Add("Jetstream.bat has been executed!");
       lbLogs.Items.Add("Status of run Jetstream.bat is:" + executedPath.status_text);
       lbLogs.Items.Add("Done!");
       lbLogs.Items.Add("************************************************************");
-    
 
     }
-
 
     private void UploadZip()
     {
@@ -235,6 +263,11 @@ namespace Cloudshare
           {
             bpLoadFile.CustomText = "Failed!";
           }
+        }
+        else
+        {
+          bpLoadFile.CustomText = "Succeed!";
+          bpLoadFile.Update();
         }
         lbLogs.Items.Add("Package has been uploaded!");
         bpLoadFile.DisplayStyle = ProgressBarDisplayText.CustomText;
@@ -289,7 +322,8 @@ namespace Cloudshare
     private void rbNewEnvironment_CheckedChanged(object sender, EventArgs e)
     {
       SpapshotsComboBox.Visible = true;
-      lblSnapshotName.Visible = true;
+      tbOwner.Visible = false;
+      lblSnapshotName.Text = "Snapshot Name";
       lblBluePrint.Text = "BluePrint Name";
       this.BlueprintsComboBox.DataSource = _blueprints;
     }
@@ -297,7 +331,8 @@ namespace Cloudshare
     private void rbAliveEnvironment_CheckedChanged(object sender, EventArgs e)
     {
       SpapshotsComboBox.Visible = false;
-      lblSnapshotName.Visible = false;
+      lblSnapshotName.Text = "User owner";
+      tbOwner.Visible = true;
       lblBluePrint.Text = "Environment Name";
       this.BlueprintsComboBox.DataSource = _aliveEnvironments;
     }
